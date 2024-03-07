@@ -1,14 +1,24 @@
-import axios from 'axios';
+import axios from "axios";
 
 export async function getPokemons() {
-  const { data } = await axios.get(
-    'https://pokeapi.co/api/v2/pokemon?limit=10'
-  );
-  return data.results;
+  try {
+    const { data } = await axios.get(
+      "https://pokeapi.co/api/v2/pokemon?limit=10"
+    );
+    return data?.results;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function getPokemonByName(name) {
-  const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  try {
+    const { data } = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${name}`
+    );
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }

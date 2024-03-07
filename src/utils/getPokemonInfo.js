@@ -1,7 +1,8 @@
 export default function getPokemonInfo(data) {
-  let name = data.name.split('');
+  if (!data) return;
+  let name = data.name.split("");
   name[0] = name[0].toUpperCase();
-  name = name.join('');
+  name = name.join("");
 
   return {
     name: name,
